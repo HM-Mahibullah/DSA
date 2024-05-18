@@ -33,8 +33,15 @@ int main()
         for(int j=1;j<=n;j++)
         {
         cout<<p[i][j]<<" ";
-
-        }
+    }
         cout<<endl;
     }
 }   
+
+
+//FOR INPUT MATRIX
+4
+7 5 0 0
+7 0 0 2
+0 3 0 0 
+4 0 1 0
