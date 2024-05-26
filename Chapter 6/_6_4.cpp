@@ -2,7 +2,7 @@
 using namespace std;
 
 
-int main() //pesh element is stack
+int main() //push elements in stack
 {
   
     stack<int> a;
