@@ -25,19 +25,19 @@ void quickSort(int a[], int low, int high) {
 }
 
 int main() {
-   int m;
+   int n;
     cout << "Enter the number of elements: ";
-    cin >> m;
+    cin >> n;
 
-    int a[m];
+    int a[n];
     cout << "Enter the elements:\n";
-    for (int i = 0; i < m; ++i) {
+    for (int i = 0; i < n; ++i) {
         cin >> a[i];
     }
-    int n = sizeof(a) / sizeof(a[0]);
-    quickSort(a, 0, n - 1);//After the quickSort function completes execution, the original array a contains the sorted elements.
+    int m = sizeof(a) / sizeof(a[0]);
+    quickSort(a, 0, m - 1);//After the quickSort function completes execution, the original array a contains the sorted elements.
     //becausu we pass by referance.
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < m; i++)
     {
         cout << a[i] << " ";
     }
