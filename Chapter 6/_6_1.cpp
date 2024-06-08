@@ -14,6 +14,7 @@ int main() //push elements integer type in stack
     cout<<"Top element:"<<a.top()<<endl;
     a.pop();
     }
+  //    for (; !a.empty(); a.pop())
       
     
     return 0;
