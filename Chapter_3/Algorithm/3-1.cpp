@@ -30,5 +30,6 @@ Enter your Text
 ZAAABBBY
 Enter your keyword
 AB
+output:
 ZY
 */
