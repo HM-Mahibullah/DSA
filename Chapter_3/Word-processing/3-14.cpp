@@ -57,8 +57,8 @@ if
    input : 
         This is the first paragraph.
                                      //containg five space
-        This is the second paragraph.
-                                       //containg five space and this section k=2
+        This is the second paragraph. //this section k=2
+                                       //containg five space
         This is the third paragraph.
         $$$$$
     output:Containg space in pragraph=1
