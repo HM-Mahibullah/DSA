@@ -39,7 +39,7 @@ int main()
 {
     string s[100];
     int i;
-    for(i=0;i<sizeof(s)/sizeof(s[0]);i++)
+    for(i=0;i<500;i++)
     {
         getline(cin,s[i]);
         if(s[i]=="$$$$$")
