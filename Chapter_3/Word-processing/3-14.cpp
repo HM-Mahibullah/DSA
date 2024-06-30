@@ -42,7 +42,7 @@ int main()
     for(i=0;i<500;i++)
     {
         getline(cin,s[i]);
-        if(s[i]=="$$$$$")
+        if(s[i].substr(0, 5)=="$$$$$")
         {
             break;
         }
