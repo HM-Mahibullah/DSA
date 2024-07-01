@@ -25,59 +25,71 @@ If SUBSTRING(LINE[K], J, 5) = MID, then:
 [End of Step 3 loop.]
 7. Return
 */
-
-#include<bits/stdc++.h>
+#include <iostream>
+#include <string>
 using namespace std;
-int COUNT(string a[],int n,int countNumber)
+
+int COUNT(string WORD[], int N, int countNumber)
 {
-    string key="the";
-    string  biggin=" "+key;
-    string mid=" "+key+" ";
-    string end=key+" ";
-    for(int i=0;i<n;i++)
+    string key("the");
+    string BEG(key + " ");
+    string END(" " + key);
+    string MID(" " + key + " ");
+
+    for (int i = 0; i < N; i++)
     {
-        if(a[i].substr(0,4)==biggin)
+          // Check for "the " at the beginning of the string
+        if (WORD[i].substr(0, 4) == BEG)
         {
-            countNumber++;
+            countNumber += 1;
         }
-        /*
-        else if(a[i].substr(a[i].length()-4,4)==end)
+            // Check for " the " in the middle of the string
+        for (int K = 1; K <= WORD[i].length()-4; K++)//because of 4 is "END string" value.
         {
-            countNumber++;
+            /* 
+            word[i] means= "the moon in the middle of the night the"
+            */
+            if (WORD[i].substr(K, 5) == MID)
+            {
+                countNumber += 1;
+            }
         }
-        */
-       for(int k=0;k<a[i].length()-4;k++)//because of 4 is "END string" value.
-       {
-        if(a[i].substr(k,5)==mid)
+        // Check for " the" at the end of the string
+        if (WORD[i].substr(WORD[i].length() - 4, 4) == END)
         {
-            countNumber++;
-        }
-       }
-       if(a[i].substr(a[i].length()-4,4)==end)
-        {
-            countNumber++;
+            /*
+            if input=the moon in the middle of the night the
+            then
+                 WORD[i].substr(WORD[i].length() - 4, 4) == END
+                =WORD[i].substr(38-4, 4) == END
+                =WORD[i].substr(34, 4) == END
+                =WORD[i].substr(34, 4) == " the"
+                
+            */
+            countNumber += 1;
         }
     }
     return countNumber;
 }
+
 int main()
 {
-    string s[100];
-    int i=0;
-     cout << "Enter your string\n";
-    while (i<500)
+    string S[100];
+    int i = 0;
+    cout << "Enter your string\n";
+    while (i <500 )
     {
-      getline(cin,s[i]);
-      if(s[i].substr(0,5)=="$$$$$")
-      {
-        break;
-      }
-      i++;
+        getline(cin, S[i]);
+        if (S[i].substr(0, 5) == "$$$$$")
+            break;
+        i++;
     }
-    int num=COUNT(s,i,0);
-    cout<<"Number of ' the ' = " << num << " Times\n";
+    int NUM = COUNT(S, i, 0);
+    cout << "Number of ' the ' = " << NUM << " Times\n";
+    return 0;
+}
 
-    }
+
     /*
 
     //Not using fullstop(.) after 'the')
