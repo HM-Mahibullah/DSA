@@ -44,7 +44,7 @@ int COUNT(string WORD[], int N, int countNumber)
             countNumber += 1;
         }
             // Check for " the " in the middle of the string
-        for (int K = 1; K <= WORD[i].length()-4; K++)//because of 4 is "END string" value.
+        for (int K = 1; K <= WORD[i].length()-END.length(); K++)//because of 4 is "END string" value.
         {
             /* 
             word[i] means= "the moon in the middle of the night the"
@@ -55,7 +55,7 @@ int COUNT(string WORD[], int N, int countNumber)
             }
         }
         // Check for " the" at the end of the string
-        if (WORD[i].substr(WORD[i].length() - 4, 4) == END)
+        if (WORD[i].substr(WORD[i].length()-END.length(), 4) == END)
         {
             /*
             if input=the moon in the middle of the night the
@@ -88,6 +88,8 @@ int main()
     cout << "Number of ' the ' = " << NUM << " Times\n";
     return 0;
 }
+
+
 
 
     /*
