@@ -52,6 +52,7 @@ int main()
     }
     if(index!=-1)
 cout<<"Find the index which for matching is="<<index+1<<endl;
+cout<<"Total checking iteration loop="<<loopCounter;
    else
    {
    
