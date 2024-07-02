@@ -1,5 +1,6 @@
 /*
-Page  54
+                             //This code is same algorithm 3-3.cpp in my github//
+Page  62
 Algorithm 3.3: (Pattern Matching) P and T are strings with lengths R and S, 
 respectively, and are stored as arrays with one character per element. This 
 algorithm finds the INDEX of P in T.
