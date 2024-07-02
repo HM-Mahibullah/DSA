@@ -63,8 +63,10 @@ cout<<"Find the index which for matching is="<<index+1<<endl;
 /*
 //
 input
-Enter main string=abcda
+Enter main string=ababcda
 Enter substring =cd
+
+output: Find the index which for matching is=5
 //
 
 OR using  this code go to statement
