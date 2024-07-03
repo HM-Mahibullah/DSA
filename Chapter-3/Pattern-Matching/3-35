@@ -1,0 +1,18 @@
+First strcpy Call (strcpy(s, "NEW YORK");):
+
+strcpy(s, "NEW YORK"); copies the string "NEW YORK" into the character array s.
+Since s has a fixed length of 12 characters, "NEW YORK" (which is 8 characters long including the null terminator \0) fits within the array bounds.
+
+Second strcpy Call (strcpy(s, "SOUTH CAROLINA");):
+
+strcpy(s, "SOUTH CAROLINA"); replaces the contents of s with "SOUTH CAROLINA".
+"SOUTH CAROLINA" (which is 15 characters long including the null terminator) exceeds the fixed length of s.
+This can lead to undefined behavior in C/C++, commonly known as a buffer overflow, where memory beyond the allocated size 
+(s in this case) may be overwritten. In practice, the behavior can vary from crashing the program to unpredictable results.
+
+
+Third strcpy Call:
+
+strcpy(s, "PENNSYLVANIA"); replaces the content of s with "PENNSYLVANIA".
+s now contains "PENNSYLVANIA" followed by a null character ('\0').
+cout << s << endl; prints the updated contents of s, which outputs "PENNSYLVANIA".
