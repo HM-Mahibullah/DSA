@@ -1,8 +1,8 @@
 /*
 Let W be the string ABCD. 
 (a) Find the length of W. 
-(b) List all substrings of W. 
-(c) List all the initial substrings of W.
+(b)find the nummber of substrings of W. 
+(c)find the nummber of initial substrings of W.
 */
 #include<iostream>
 #include<string>
@@ -42,14 +42,14 @@ Enter your String
 XYZST
 (a)Length of String = 5
 
-(b) List all substrings of W.
+(b)find the nummber of substrings of W.
 X XY XYZ XYZS XYZST
 Y YZ YZS YZST
 Z ZS ZST
 S ST
 T
   Total substring from main string=15(5+4+3+2+1)
-(c)List all the initial substrings of W
+(c)find the nummber of initial substrings of W
 XYZST
 XYZS
 XYZ
