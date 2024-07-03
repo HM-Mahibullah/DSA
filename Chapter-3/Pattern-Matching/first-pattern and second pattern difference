@@ -1,1 +1,49 @@
+Text (T): abababc
+Pattern (p): abc
+Naive or first Pattern Matching
+//          always check substring length (abc)    //
+How it works:
+Start from the beginning of the text and check each character.
+Compare the substring of text with the pattern of the same length.
+If all characters match, a match is found.
+If not, move to the next character in the text and repeat the comparison.
+Step-by-Step:
+Compare T[0:2] (ab) with p (cd). No match.
+Compare T[1:3] (ba) with p (cd). No match.
+Compare T[2:4] (ab) with p (cd). No match.
+Compare T[3:5] (bc) with p (cd). No match.
+Compare T[4:6] (cd) with p (cd). Match found.
+Result: Match found at index 4.
 
+Prefix-Based or second Pattern Matching
+How it works:
+Initialize an array with all prefixes of the pattern.
+Build the result string by appending one character at a time from the text.
+After each character is appended, find the longest suffix that matches any prefix of the pattern.
+Continue until a full match is found or the text is exhausted.
+Step-by-Step:
+Initialize Q:
+
+Q[0] = ""
+Q[1] = "c"
+Q[2] = "cd"
+Start with S[0] = "".
+
+Append T[0] = 'a':
+
+S[1] = F("", "a") = "" (no matching prefix found in Q).
+Append T[1] = 'b':
+
+S[2] = F("", "b") = "" (no matching prefix found in Q).
+Append T[2] = 'a':
+
+S[3] = F("", "a") = "" (no matching prefix found in Q).
+Append T[3] = 'b':
+
+S[4] = F("", "b") = "" (no matching prefix found in Q).
+Append T[4] = 'c':
+
+S[5] = F("", "c") = "c" (matches Q[1]).
+Append T[5] = 'd':
+
+S[6] = F("c", "d") = "cd" (matches Q[2]).
