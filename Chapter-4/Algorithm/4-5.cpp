@@ -53,12 +53,13 @@ int main()
     }
     else
     {
-        cout<<"Can not find your element";
+        cout<<"Can not find you element which index is=0";
     }
 
 
 }
 /*
+                             //first run///
 Enter your array
 1
 2
@@ -72,5 +73,21 @@ Enter your array
 10
 Enter your checking number
 5
+Entering Element index is=4
+
+                       //second run//
+Enter your array
+4
+11
+6
+744
+33
+91033
+99
+11
+7
+2
+Enter your checking number
+33
 Entering Element index is=4
 */
