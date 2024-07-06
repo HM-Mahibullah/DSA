@@ -1,4 +1,4 @@
-/*
+/*  This Algorithm is same of 4.2 Algorithm
 page 73
 Algorithm 4.2: (Inserting into a Linear Array) INSERT (LA, N, K, ITEM)
 Here LA is a linear array with N elements and K is a positive integer 
