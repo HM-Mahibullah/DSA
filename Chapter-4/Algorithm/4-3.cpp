@@ -1,16 +1,6 @@
 /*  This Algorithm is same of 4.2 Algorithm
 page 73
-Algorithm 4.2: (Inserting into a Linear Array) INSERT (LA, N, K, ITEM)
-Here LA is a linear array with N elements and K is a positive integer 
-such that K≤ N. This algorithm inserts an element ITEM into the Kth position in LA.
-1. [Initialize counter.] Set J : = N.
-2. Repeat Steps 3 and 4 while J ≥ K.
-3.         [Move Jth element downward.] Set LA[J + 1] := LA[J].
-4.         [Decrease counter.] Set J := J – 1.
-[End of Step 2 loop.]
-5. [Insert element.] Set LA[K] := ITEM.
-6. [Reset N.] Set N := N + 1.
-7. Exit.
+//Using Dlete function.
 */
 #include<iostream>
 #include<string>
