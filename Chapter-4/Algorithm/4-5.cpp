@@ -53,7 +53,7 @@ int main()
     }
     else
     {
-        cout<<"Can not find you element";
+        cout<<"Can not find your element";
     }
 
 
