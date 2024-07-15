@@ -27,33 +27,40 @@ void EnterElementsFunction(string s[], int size) {
 }
 
 void INSERT(string s[], int &size, int K, string ITEM) {
-    for (int i = size; i > K; i--) {
-        s[i] = s[i - 1];
+    for (int i = size; i > K; i--) 
+    {
+        s[i] = s[i - 1];//Transfer element  such as index[5] to index[4].
     }
     s[K] = ITEM;
     size++;
 }
 
-int main() {
+int main()
+{
     int size = 5;
     string s[100], search;
 
     cout << "Enter " << size << " sorted elements:\n";
     EnterElementsFunction(s, size);
+    sort(s,s+size);
 
     cout << "Enter your Keyword\n";
     cin >> search;
     
     BinarySearch(s, search, size);
 
-    if (index != -1 && s[index] == search) {
+    if (index != -1 && s[index] == search)
+    {
         cout << "Index of element (with zero base index) = " << index << endl;
-    } else {
+    }
+    else 
+    {
         cout << "Element not found in array. Inserting at correct position.\n";
-        INSERT(s, size, index, search);
+        INSERT(s, size, index, search);//Index value is =0 because of (index =beggin).
         
     cout << "Updated array:\n";
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) 
+    {
         cout << s[i] << " ";
     }
     cout << endl;
@@ -62,3 +69,30 @@ int main() {
 
     return 0;
 }
+/*
+   First run
+Enter 5 sorted elements:
+a
+b
+c
+d
+e
+Enter your Keyword
+e
+Index of element (with zero base index) = 4
+
+
+    Second run
+
+Enter 5 sorted elements:
+a
+b
+c
+e
+f
+Enter your Keyword
+d
+Element not found in array. Inserting at correct position.
+Updated array:
+a b c d e f
+*/
