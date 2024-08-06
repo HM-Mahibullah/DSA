@@ -1,5 +1,5 @@
-/* Algorithm 5.3: SRCHSL(INFO, LINK, START, ITEM, LOC)
-LIST is a sorted list in memory. This algorithm finds the location LOC of the node where ITEM first appears in LIST, or sets LOC = NULL.
+/* Algorithm 5.2: SRCHSL(INFO, LINK, START, ITEM, LOC)
+LIST is a Unsorted list in memory. This algorithm finds the location LOC of the node where ITEM first appears in LIST, or sets LOC = NULL.
 1. Set PTR := START.
 2. Repeat Step 3 while PTR ≠ NULL:
 3. If ITEM <INFO[PTR], then:
