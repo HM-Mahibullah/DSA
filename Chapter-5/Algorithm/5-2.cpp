@@ -74,7 +74,7 @@ PRINT();
 int element;
 cout<<"Enter the element for search=";
 cin>>element;
-Node* result=SEARCH(element);//It receives pointer type Node which is Temp
+Node* result=SEARCH(element);//It receives pointer type Node which is Temp(data,next)
 if(result!=NULL)
 {
     cout<<"Element "<<element<<" is  found and address is="<<result<<endl;
