@@ -33,11 +33,6 @@ Node* Head=nullptr;
 
 void PRINT()
 {
-    if(Head==nullptr)
-    {
-        cout<<"Link is empty.";
-        return;
-    }
     cout << "Singly Linked List with traversing : \n";
     Node *Temp=Head;
     while (Temp!=nullptr)
