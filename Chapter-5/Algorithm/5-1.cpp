@@ -58,6 +58,7 @@ cin>>n;
 if (n <= 0) 
     {
         cout << "Number of nodes should be greater than 0." << endl;
+     return 0;
     }
 cout<<"Enter element in Node 1=";
 cin>>x;
@@ -82,7 +83,7 @@ PRINT();//Function
         //First run//
 Enter creating node numbers=0
 Number of nodes should be greater than 0.
-List is empty.
+
 
             //second run//
 
