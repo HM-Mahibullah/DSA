@@ -1,3 +1,13 @@
+/*Algorithm 5.5: INSLOC(INFO, LINK, START, AVAIL, LOC, ITEM) This algorithm inserts ITEM so that ITEM follows the node with location LOC or 
+inserts ITEM as the first node when LOC = NULL.
+1. [OVERFLOW?] If AVAIL = NULL, then: Write: OVERFLOW, and Exit.
+12. [Remove first node from AVAIL list.]
+Set NEW: = AVAIL and AVAIL := LINK[AVAIL].
+3. Set INFO[NEW] := ITEM. [Copies new data into new node.]
+4. If LOC = NULL, then: [Insert as first node.] Set LINK[NEW]:= START and START: = NEW.
+ Else: [Insert after node with location LOC.] Set LINK[NEW] := LINK[LOC) and LINK[LOC]: = NEW. [End of If structure.]
+5.Exit.*/
+
 #include<iostream>
 using namespace std;
 struct NODE
