@@ -1,85 +1,168 @@
+/*
+Page 30
+Algorithm 5.4: INSFIRST(INFO, LINK, START, AVAIL, ITEM)
+This algorithm inserts ITEM as the first node in the list.
+
+1. [OVERFLOW?] If AVAIL = NULL, then: Write: OVERFLOW, and Exit.
+
+2. [Remove first node from AVAIL list.]
+Set NEW := AVAIL and AVAIL := LINK[AVAIL].
+
+3. Set INFO[NEW] := ITEM. [Copies new data into new node]
+
+4. Set LINK[NEW] := START. [New node now points to original first node.]
+
+5. Set START := NEW. [Changes START so it points to the new node.]
+
+6. Exit.
+*/
+
+
 #include<iostream>
 using namespace std;
 struct NODE
 {
-    int data;
-    NODE *next;
+ int data;
+ NODE* next;
 };
-NODE* Head=NULL;
+NODE* Head=nullptr;
+NODE* Avail=nullptr;
+/* Head is a pointer to a NODE structure, but it currently doesn't point to any memory location. 
+It indicates that the linked list is empty or that no memory has been allocated for the head node yet. */
+NODE* GETNODE()
+{
+
+if(Avail!=nullptr)
+{
+NODE* node=Avail;
+Avail=Avail->next;
+return node;//return pointer type node address
+}
+else
+{
+return new NODE();
+}
+
+}
 void PRINT()
 {
     NODE* Temp=Head;
-    while (Temp!=NULL)//NULL is used to represent a null pointer constant in both C and C++
-    //nullptr is a keyword introduced in C++11 that represents a null pointer of any type.
+    while (Temp!=nullptr)
     {
-    cout<<"Node data="<<Temp->data
-    <<",Node address="<<Temp
-    <<",Next node address="<<Temp->next<<endl<<"\n";
-     Temp=Temp->next;
+    cout<<"Node element="<<Temp->data<<" and Node address="<<Temp->next<<endl;
+    Temp=Temp->next;
     }
- 
+    
 }
 void FIRSTINSERT(int element)
 {
-NODE* insertnode=new NODE();// Allocate new node from AVAIL list
-insertnode->data=element;// Copies new data into new node
-insertnode->next=Head; // New node now points to original first node
-Head=insertnode;// Changes Head so it points to the new node
+NODE* insertnode=GETNODE();
+insertnode->data=element;
+insertnode->next=Head;
+Head=insertnode;
 }
-
+/*
+void FREENODE(NODE* Temp)
+{
+  Temp->next=Avail;
+  Avail=Temp;
+}
+ void DELETEFIRST()
+{
+   
+    if(Head!=nullptr)
+    {
+      NODE* Temp=Head;
+      Head=Head->next;
+      FREENODE(Temp);
+    }
+}
+NODE* GETLOCNODE(int n)
+{
+NODE* Temp=Head;
+int count=1;
+while (Temp!=nullptr&& count<n)
+{
+Temp=Temp->next;
+count++;
+}
+return (count==n)? Temp:nullptr;
+}
+void InsertElementInList(int element,NODE* Loc)
+{
+NODE* newNode=GETNODE();
+newNode->data=element;
+if(Loc==nullptr)
+{
+newNode->next=Head;
+Head=newNode;
+}
+else
+{
+    newNode->next=Loc->next;
+    Loc->next=newNode;
+}
+} */
 int main()
 {
-int n,x,element;
-cout<<"Enter creating node numbers=";
-cin>>n;
-if (n <= 0) 
-    {
+int x,n,element;
+cout << "Enter creating node numbers=";
+    cin >> n;
+    if (n <= 0) {
         cout << "Number of nodes should be greater than 0." << endl;
         return 0;
     }
-cout<<"Enter element Node 1=";
+cout<<"Enter element node 1=";
 cin>>x;
-NODE* node1=new NODE();
+NODE *node1=new NODE();
 node1->data=x;
-node1->next=NULL;
+node1->next=nullptr;
 Head=node1;
-NODE *currentNode=node1;
-for (int  i = 2; i <=n; i++)
+NODE* currentNode=node1;//Point node1 which has data and next
+for (int  i =2; i <=n; i++)
 {
-cout<<"Input data elements in Node "<<i<<" =";
-cin>>x;    
-NODE* newNode=new NODE();//The new Node() part allocates memory and calls the constructor for the Node ().
+cout << "Input data elements in Node " << i << " =";
+    cin >> x;
+NODE* newNode=GETNODE();
 newNode->data=x;
-newNode->next=NULL;
+newNode->next=nullptr;
 currentNode->next=newNode;
 currentNode=newNode;
 }
-PRINT();// Print the current list
-cout<<"At beggining Creating a new node for insert element= ";
-cin>>element;
+PRINT();
+cout << "At beginning,Insert element at first node = ";
+cin >> element;
 FIRSTINSERT(element);
-PRINT(); // Print the list again to see the new element at the beginning
+PRINT();
+/* DELETEFIRST();
+cout<<"After Deleting First Node"<<endl;
+PRINT();
+int nodePosition;
+cout << "After which node do you want to insert the element? (e.g., 3 for after Node 3): ";
+cin >> nodePosition;
+NODE* Loc=GETLOCNODE(nodePosition);
+if(Loc!=nullptr)
+{
+cout << "Enter element to insert after Node " << nodePosition << ": ";
+cin >> element;
+InsertElementInList(element,Loc);
+}
+else {
+    cout << "Invalid node position." << endl;
+    }
+
+PRINT();  // Print the list after insertion */
 return 0;
 
 
 
 }
-/* 
-Enter creating node numbers=3
-Enter element Node 1=6
-Input data elements in Node 2 =5
-Input data elements in Node 3 =9
-Node data=6,Node address=0xfc6f10,Next node address=0xfc6f20
-
-Node data=5,Node address=0xfc6f20,Next node address=0xfc6f30
-
-Node data=9,Node address=0xfc6f30,Next node address=0
-
-At beggining Creating a new node for insert element= 8
-Node data=8,Node address=0xfc6f40,Next node address=0xfc6f10
-
-Node data=6,Node address=0xfc6f10,Next node address=0xfc6f20
-
-Node data=5,Node address=0xfc6f20,Next node address=0xfc6f30
-
-Node data=9,Node address=0xfc6f30,Next node address=0 */
+/* Enter creating node numbers=2
+Enter element node 1=2
+Input data elements in Node 2 =3
+Node element=2 and Node address=0x11c6f20
+Node element=3 and Node address=0
+At beginning,Insert element at first node = 8
+Node element=8 and Node address=0x11c6f10
+Node element=2 and Node address=0x11c6f20
+Node element=3 and Node address=0 */
