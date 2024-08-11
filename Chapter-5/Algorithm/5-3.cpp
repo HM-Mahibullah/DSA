@@ -42,13 +42,6 @@ Node* GetNode()
         return new Node();
     }
 }
-/* void FirstElement(int element)
-{
-    Node* insertnode=GetNode();
-    insertnode->data=element;
-    insertnode->next=Head;
-    Head=insertnode;
-} */
 void InsertSorted(Node* &Head,int element)
 {
   Node* newnode=GetNode();
@@ -104,11 +97,6 @@ int main()
     InsertSorted(Head,x);
     }
   PRINT();
-  
-/*   cout<<"At the beggining insert element in the node=";
-  cin>>element;
-  FirstElement(element);
-  PRINT(); */
    // Find the location of an element in the linked list which is sorted.
     cout << "Enter the element to search: ";
     cin >> element;
