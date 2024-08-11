@@ -1,4 +1,4 @@
-//5.6 and 5.7 is same algorithm
+//5.6 and 5.7 is writting same style
 /*
 Page 132
 Procedure 5.6: FINDA(INFO, LINK, START, ITEM, LOC)
