@@ -81,12 +81,11 @@ NODE* GETLOCNODE(int n) {
         count++;
         /*     
 
-Linked lists are typically 1-based indexed, meaning the first node is at position 1, the second node is
- at position 2, and so on.
+Linked lists are typically 1-based indexed, meaning the first node is at position 1, the second node isat position 2, and so on.
+
+
 Consider a list with nodes A (1), B (2), and C (3), and you want to find the node at position 2.
-
 Using count < position:
-
 Initial: Temp points to node A, count is 1.
 First iteration: Temp moves to node B, count is incremented to 2.
 Condition count < position becomes false (2 < 2 is false), so the loop exits.
