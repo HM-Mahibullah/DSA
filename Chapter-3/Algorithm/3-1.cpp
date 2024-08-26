@@ -33,3 +33,28 @@ AB
 output:
 ZY
 */
+
+/*
+Example:
+Let’s use an example to understand the process.
+Input:
+•	T: "This is a simple test. This test is simple."
+•	P: "test"
+Step-by-Step Execution:
+1.	Initial State:
+o	T = "This is a simple test. This test is simple."
+o	P = "test"
+2.	First Find:
+o	K = T.find(P); → K = 17 (The first occurrence of "test" starts at index 17.)
+3.	First Erase:
+o	T.erase(17, P.length()); → T = "This is a simple . This test is simple." (The first "test" is removed.)
+4.	Second Find:
+o	K = T.find(P); → K = 24 (The next occurrence of "test" starts at index 24.)
+5.	Second Erase:
+o	T.erase(24, P.length()); → T = "This is a simple . This is simple." (The second "test" is removed.)
+6.	No More Occurrences:
+o	K = T.find(P); → K = string::npos (No more occurrences of "test" are found, so the loop ends.)
+7.	Output:
+o	The final output is T = "This is a simple . This is simple."
+
+*/
