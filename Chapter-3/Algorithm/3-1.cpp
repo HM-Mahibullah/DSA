@@ -10,7 +10,7 @@ int main()
 {
     string T, P;
     cout << "Enter your Text\n";
-    //getline(cin,T);// Reads entire line including spaces
+    getline(cin,T);// Reads entire line including spaces
     cout << "Enter your keyword\n";
     cin >> P;
     size_t K = T.find(P);//size_t is an unsigned integer type, which means it cannot represent negative numbers.
