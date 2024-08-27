@@ -33,6 +33,13 @@ int precedence(char op)
     return 0;
 }
 
+// Function to check associativity of operators
+// For simplicity, assuming all operators except '^' are left-associative
+bool isLeftAssociative(char op)
+{
+    return op != '^'; // '^' is right-associative
+}
+
 // Function to perform the infix to postfix conversion
 string infixToPostfix(string Q)
 {
@@ -44,7 +51,7 @@ string infixToPostfix(string Q)
     for (char ch : extendedQ)
     {
         if (isdigit(ch) || isalpha(ch))
-        { // isalpha(ch) is used to identify operands that are alphabetic variables, such as A, B, C, etc.
+        {  // isalpha(ch) is used to identify operands that are alphabetic variables, such as A, B, C, etc.
             P += ch;
         }
         else if (ch == '(')
@@ -52,23 +59,25 @@ string infixToPostfix(string Q)
             STACK.push(ch);
         }
         else if (ch == ')')
-        { // If ')', pop until '('
+        { // If ')', pop and append to output until '(' is found
             while (!STACK.empty() && STACK.top() != '(')
             {
                 P += STACK.top();
                 STACK.pop();
             }
-            STACK.pop(); // Remove the left parenthesis
+            STACK.pop(); // Remove the '(' from STACK
         }
         else
         { // If an operator is encountered
-            // Handle right-associativity for '^'
-            while (!STACK.empty() && precedence(STACK.top()) > precedence(ch))
+            // Handle precedence and associativity
+            while (!STACK.empty() && STACK.top() != '(' &&
+                   (precedence(STACK.top()) > precedence(ch) ||
+                    (precedence(STACK.top()) == precedence(ch) && isLeftAssociative(ch))))
             {
                 P += STACK.top();
                 STACK.pop();
             }
-            STACK.push(ch);
+            STACK.push(ch); // Push current operator to STACK
         }
     }
 
@@ -87,6 +96,7 @@ int main()
     return 0;
 }
 
+
 /*
                //First run//
 
@@ -97,6 +107,7 @@ Postfix expression: AB+CD-*
 
 Enter an infix expression: A+(B*C-(D/E^F)*G)*H
 Postfix expression: ABC*DEF^/G*-H*+
+ABC*DEF^/G*-H*+
 
 */
 
