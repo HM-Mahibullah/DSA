@@ -136,4 +136,82 @@ o	Pop + and add to P.
 o	Pop ( and discard.
 Final Postfix Expression: ABC*DEF^/G*-H*+
 
+
+                         //SECOND RUN//
+
+
+Expression: A*(B+D)/E-F*(G+H/K)
+Operator Precedence:
+1.	+, - have the lowest precedence (1)
+2.	*, / have higher precedence (2)
+3.	^ has the highest precedence (3)
+4.	Parentheses () override precedence.
+Stack Operations and Postfix Construction:
+1.	Read A: It's an operand, so append it to the postfix expression P.
+o	Postfix: A
+o	Stack: (
+2.	Read *: It's an operator. Push it onto the stack.
+o	Postfix: A
+o	Stack: (*
+3.	Read (: Push it onto the stack to handle the subexpression.
+o	Postfix: A
+o	Stack: (*(
+4.	Read B: It's an operand, so append it to the postfix expression.
+o	Postfix: AB
+o	Stack: (*(
+5.	Read +: It's an operator. Push it onto the stack.
+o	Postfix: AB
+o	Stack: (*(+
+6.	Read D: It's an operand, so append it to the postfix expression.
+o	Postfix: ABD
+o	Stack: (*(+
+7.	Read ): Pop from the stack to the postfix expression until ( is encountered.
+o	Pop + and append to postfix.
+o	Postfix: ABD+
+o	Stack: (*
+8.	Read /: It's an operator. Compare precedence with the top of the stack (*). Since / and * have the same precedence, pop * because of 
+    left-associative(বাম-সহযোগী বলতে বোঝায় যে যখন একই পূর্বের দুটি অপারেটর কোনও অভিব্যক্তিতে উপস্থিত হয়, তখন তাদের বাম থেকে ডানে মূল্যায়ন করা হয়। )and append it to postfix, then push /.
+o	Postfix: ABD+*
+o	Stack: (/
+9.	Read E: It's an operand, so append it to the postfix expression.
+o	Postfix: ABD+*E
+o	Stack: (/
+10.	Read -: It's an operator. Compare precedence with /. Since - has lower precedence, pop / and append it to postfix, then push -.
+o	Postfix: ABD+*E/
+o	Stack: (-
+11.	Read F: It's an operand, so append it to the postfix expression.
+o	Postfix: ABD+*E/F
+o	Stack: (-
+12.	Read *: It's an operator, so push it onto the stack.
+o	Postfix: ABD+*E/F
+o	Stack: (-(*
+13.	Read (: Push it onto the stack to handle the subexpression.
+o	Postfix: ABD+*E/F
+o	Stack: (-(*(
+14.	Read G: It's an operand, so append it to the postfix expression.
+o	Postfix: ABD+*E/FG
+o	Stack: (-(*(
+15.	Read +: It's an operator. Push it onto the stack.
+o	Postfix: ABD+*E/FG
+o	Stack: (-(*(+
+16.	Read H: It's an operand, so append it to the postfix expression.
+o	Postfix: ABD+*E/FGH
+o	Stack: (-(*(+
+17.	Read /: It's an operator. Since / has higher precedence than +, push / onto the stack.
+o	Postfix: ABD+*E/FGH
+o	Stack: (-(*(+/
+18.	Read K: It's an operand, so append it to the postfix expression.
+o	Postfix: ABD+*E/FGHK
+o	Stack: (-(*(+/
+19.	Read ): Pop from the stack until ( is encountered.
+o	Pop / and append to postfix.
+o	Pop + and append to postfix.
+o	Postfix: ABD+*E/FGHK/+
+o	Stack: (-(*
+20.	End of expression: Pop all remaining operators from the stack and append them to the postfix expression.
+o	Pop * and append to postfix.
+o	Pop - and append to postfix.
+o	Postfix: ABD+*E/FGHK/+*-
+
+
  */
