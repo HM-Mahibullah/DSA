@@ -9,9 +9,7 @@ int factorialRecursive( int N)
     {
         return 1;
     }
-
-    int smallAns = factorialRecursive( N - 1); // Call FACTORIAL for N-1
-    return N * smallAns;                            // Multiply FACT by N
+    return N *factorialRecursive( N - 1);              
 }
 
 int main()
