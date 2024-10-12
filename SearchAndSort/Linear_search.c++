@@ -15,6 +15,7 @@ int Linear_Search(int a[],int check,int size)
 }
 int main()
 {
+    //বাইনারি সার্চ এর ইনপুট মানের উর্ধ্ব ক্রম অনুসারে থাকে
     int a[]={1,2,3,8,4,5};
     int check=5;
     int size=sizeof(a);
