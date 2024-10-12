@@ -1,0 +1,30 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+int Linear_Search(int a[], int check, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        if (a[i] == check)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+int main()
+{
+    // লিনিয়ার সার্চ এর ইনপুট মানের উর্ধ্ব ক্রম অনুসারে থাকে
+    int a[] = {1, 2, 3, 8, 4, 5};
+    int check = 5;
+    int size = sizeof(a);
+    int k = Linear_Search(a, check, size);
+    if (k != -1)
+    {
+        cout << "the searchin value is=" << k;
+    }
+    else
+    {
+        cout << "Not find searching value";
+    }
+}
