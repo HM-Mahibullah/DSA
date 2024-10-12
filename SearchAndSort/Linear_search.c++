@@ -10,7 +10,7 @@ int Linear_Search(int a[], int check, int size)
             return i;
         }
     }
-    return 0;
+    return -1;
 }
 int main()
 {
@@ -19,7 +19,7 @@ int main()
     int check = 5;
     int size = sizeof(a);
     int k = Linear_Search(a, check, size);
-    if (k != 0)
+    if (k != -1)
     {
         cout << "the searchin value is=" << k;
     }
