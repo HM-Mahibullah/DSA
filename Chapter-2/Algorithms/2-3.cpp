@@ -1,20 +1,23 @@
-//Book page 27//
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
+int  LargestValue(int Data[],int size)
+{
+int k=0,Loc=0,max=Data[0];
+while(k<size)
+{
+if(max<Data[k])
+{
+    Loc=k;
+    max=Data[k];
+}
+k++;
+}
+return Loc;
+}
 int main()
 {
-    int b[]={1,9,7,5,2,4},loc=0,Max=b[0],k=0;
-    int N=sizeof(b)/sizeof(b[0]);
-    while (N>k)
-    {
-        if(Max<b[k])
-       {
-        loc=k;
-        Max=b[k];
-       }
-       k++;
-    }
-    cout<<Max<<endl;
-    cout<<loc;
-    
+    int Data[]={1,40,9,10,2,5};
+    int size=sizeof(Data)/sizeof(Data[0]);
+    int Loc=LargestValue(Data,size);
+    cout<<"Loc "<<Loc<<" Maximum "<<Data[Loc];
 }
