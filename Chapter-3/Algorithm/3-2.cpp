@@ -41,6 +41,7 @@ int main()
         T.replace(K,P.length(),Q);
         K = T.find(P);
     }
+    cout<<"After Relacement by string"<<endl;
     cout << T << endl;
     cout << P <<  endl;
     cout << Q << endl;
