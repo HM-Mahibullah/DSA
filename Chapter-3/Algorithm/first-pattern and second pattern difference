@@ -1,49 +1,58 @@
+Naive Pattern Matching (First Approach)
+Given:
+
 Text (T): abababc
 Pattern (p): abc
-Naive or first Pattern Matching
-//          always check substring length (abc)    //
-How it works:
-Start from the beginning of the text and check each character.
-Compare the substring of text with the pattern of the same length.
-If all characters match, a match is found.
-If not, move to the next character in the text and repeat the comparison.
-Step-by-Step:
-Compare T[0:2] (ab) with p (cd). No match.
-Compare T[1:3] (ba) with p (cd). No match.
-Compare T[2:4] (ab) with p (cd). No match.
-Compare T[3:5] (bc) with p (cd). No match.
-Compare T[4:6] (cd) with p (cd). Match found.
-Result: Match found at index 4.
+Explanation:
+We need to check if the pattern abc exists in the text using the naive approach. This method involves comparing each substring of the text, starting from the first character, with the pattern.
 
-Prefix-Based or second Pattern Matching
 How it works:
-Initialize an array with all prefixes of the pattern.
-Build the result string by appending one character at a time from the text.
-After each character is appended, find the longest suffix that matches any prefix of the pattern.
-Continue until a full match is found or the text is exhausted.
+Start from the first character of the text.
+Compare a substring of the text (of the same length as the pattern) to the pattern.
+If they match, the pattern is found.
+If not, shift the starting position by one character and repeat the comparison.
+Continue this process until you reach the end of the text.
 Step-by-Step:
-Initialize Q:
+Compare T[0:3] ("aba") with p ("abc") → No match.
+Compare T[1:4] ("bab") with p ("abc") → No match.
+Compare T[2:5] ("aba") with p ("abc") → No match.
+Compare T[3:6] ("bab") with p ("abc") → No match.
+Compare T[4:7] ("abc") with p ("abc") → Match found.
+Result:
+Pattern found at index 4.
 
+Prefix-Based Pattern Matching (Second Approach)
+Given:
+
+Text (T): abababc
+Pattern (p): abc
+Explanation:
+In this approach, we match based on the longest prefix that is also a suffix. The goal is to incrementally build a match by checking prefixes as we move through the text.
+
+How it works:
+Initialize an array Q with all prefixes of the pattern.
 Q[0] = ""
-Q[1] = "c"
-Q[2] = "cd"
-Start with S[0] = "".
-
-Append T[0] = 'a':
-
-S[1] = F("", "a") = "" (no matching prefix found in Q).
-Append T[1] = 'b':
-
-S[2] = F("", "b") = "" (no matching prefix found in Q).
-Append T[2] = 'a':
-
-S[3] = F("", "a") = "" (no matching prefix found in Q).
-Append T[3] = 'b':
-
-S[4] = F("", "b") = "" (no matching prefix found in Q).
-Append T[4] = 'c':
-
-S[5] = F("", "c") = "c" (matches Q[1]).
-Append T[5] = 'd':
-
-S[6] = F("c", "d") = "cd" (matches Q[2]).
+Q[1] = "a"
+Q[2] = "ab"
+Q[3] = "abc"
+Start with an empty string S, and append one character from the text at a time.
+After each character is appended, find the longest suffix of S that matches a prefix of the pattern in Q.
+Continue this process until a full match is found or the text is exhausted.
+Step-by-Step:
+Start with S = "".
+Append T[0] = 'a' → S = "a":
+Longest suffix in S that matches any prefix in Q: "a" (matches Q[1]).
+Append T[1] = 'b' → S = "ab":
+Longest suffix in S that matches any prefix in Q: "ab" (matches Q[2]).
+Append T[2] = 'a' → S = "aba":
+No matching prefix found.
+Append T[3] = 'b' → S = "abab":
+No matching prefix found.
+Append T[4] = 'a' → S = "ababa":
+No matching prefix found.
+Append T[5] = 'b' → S = "ababab":
+No matching prefix found.
+Append T[6] = 'c' → S = "abababc":
+Full match found (matches Q[3]).
+Result:
+Pattern found at index 4.
