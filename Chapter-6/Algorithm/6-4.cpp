@@ -150,6 +150,10 @@ Final Postfix Expression: ABC*DEF^/G*-H*+
 
                          //SECOND RUN//
 
+Enter an infix expression: A/(B+D)*E-F*(G+H/K) 
+Postfix expression: ABD+/E*FGHK/+*-
+
+                     //Third Run//
 
 Expression: A*(B+D)/E-F*(G+H/K)
 Operator Precedence:
