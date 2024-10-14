@@ -49,7 +49,7 @@ Array after first pass: [2, 4, 5, 3, 1]
 Second iteration (i = 2):
 
 item = 5
-Compare with a[1] = 4: Since 4 < 5, no shifts are needed.
+Compare with a[1] = 4: Since 4 > 5, no shifts are needed.
 Array after second pass: [2, 4, 5, 3, 1]
 Third iteration (i = 3):
 
