@@ -6,10 +6,10 @@
 using namespace std;
 int Insertion_sort(int a[], int size)
 {
-	int item;
+	
 	for (int i = 1; i < size; i++)
 	{
-		item = a[i];
+		int item= a[i];
 		int j = i - 1;
 		while (j >= 0 && a[j] > item)
 		{
