@@ -11,7 +11,7 @@ int Insertion_sort(int a[], int size)
     while(j>=0 && a[j]>item)
     {
      a[j+1]=a[j];
-     j=j-1;
+     j=j-1;// or j--;
     }
     a[j+1]=item;
     
