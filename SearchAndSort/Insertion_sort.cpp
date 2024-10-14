@@ -19,7 +19,7 @@ int Insertion_sort(int a[], int size)
 }
 int main()
 {
-    int a[5];
+    int a[5];//Array is fixed length data types
     int size=sizeof(a)/sizeof(a[0]);
     cout<<"Enter Five Elements";
     for(int  i=0;i<size;i++)
@@ -29,10 +29,10 @@ int main()
     
   
     int index=Insertion_sort(a,size);
-   
+ cout<<"After sorting array=";  
 for(int b:a)
 {
-    cout<<b;
+    cout<<b<<" ";
 }
 }
 
