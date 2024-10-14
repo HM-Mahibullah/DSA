@@ -1,58 +1,42 @@
-Naive Pattern Matching (First Approach)
-Given:
+the input T = "abababc" and p = "abc".
 
-Text (T): abababc
-Pattern (p): abc
-Explanation:
-We need to check if the pattern abc exists in the text using the naive approach. This method involves comparing each substring of the text, starting from the first character, with the pattern.
+First Pattern Matching (Naive Approach)
+In the naive pattern matching algorithm, we check each possible starting position in the text T and attempt to match the pattern p character by character. 
+If a mismatch is found at any character, we move the starting position by one and try again until we either find a match or exhaust the text.
 
-How it works:
-Start from the first character of the text.
-Compare a substring of the text (of the same length as the pattern) to the pattern.
-If they match, the pattern is found.
-If not, shift the starting position by one character and repeat the comparison.
-Continue this process until you reach the end of the text.
-Step-by-Step:
-Compare T[0:3] ("aba") with p ("abc") → No match.
-Compare T[1:4] ("bab") with p ("abc") → No match.
-Compare T[2:5] ("aba") with p ("abc") → No match.
-Compare T[3:6] ("bab") with p ("abc") → No match.
-Compare T[4:7] ("abc") with p ("abc") → Match found.
-Result:
-Pattern found at index 4.
+Steps:
+Loop through each possible starting position i in the text T from 0 to T.length() - p.length().
+For each starting position i, compare the substring T[i...i + p.length() - 1] with the pattern p.
+If the substring matches p, report the starting index i.
+If no match is found, continue searching by moving i forward by one.
+Example:
+For T = "abababc" and p = "abc", the algorithm will:
 
-Prefix-Based Pattern Matching (Second Approach)
-Given:
+Compare T[0...2] = "aba" with p = "abc" (mismatch).
+Compare T[1...3] = "bab" with p = "abc" (mismatch).
+Compare T[2...4] = "aba" with p = "abc" (mismatch).
+Compare T[3...5] = "bab" with p = "abc" (mismatch).
+Compare T[4...6] = "abc" with p = "abc" (match).
+The match is found at index 4.
 
-Text (T): abababc
-Pattern (p): abc
-Explanation:
-In this approach, we match based on the longest prefix that is also a suffix. The goal is to incrementally build a match by checking prefixes as we move through the text.
+Second Pattern Matching (Substring Comparison)
+In the substring comparison approach, instead of iterating character by character, we directly extract substrings of length p.length() from the text T and compare them to the pattern p.
 
-How it works:
-Initialize an array Q with all prefixes of the pattern.
-Q[0] = ""
-Q[1] = "a"
-Q[2] = "ab"
-Q[3] = "abc"
-Start with an empty string S, and append one character from the text at a time.
-After each character is appended, find the longest suffix of S that matches a prefix of the pattern in Q.
-Continue this process until a full match is found or the text is exhausted.
-Step-by-Step:
-Start with S = "".
-Append T[0] = 'a' → S = "a":
-Longest suffix in S that matches any prefix in Q: "a" (matches Q[1]).
-Append T[1] = 'b' → S = "ab":
-Longest suffix in S that matches any prefix in Q: "ab" (matches Q[2]).
-Append T[2] = 'a' → S = "aba":
-No matching prefix found.
-Append T[3] = 'b' → S = "abab":
-No matching prefix found.
-Append T[4] = 'a' → S = "ababa":
-No matching prefix found.
-Append T[5] = 'b' → S = "ababab":
-No matching prefix found.
-Append T[6] = 'c' → S = "abababc":
-Full match found (matches Q[3]).
-Result:
-Pattern found at index 4.
+Steps:
+Loop through the text T from index 0 to T.length() - p.length().
+For each index i, extract a substring T.substr(i, p.length()).
+Compare the extracted substring with the pattern p.
+If the substring equals p, report the starting index i.
+Example:
+For T = "abababc" and p = "abc", the algorithm will:
+
+Extract T.substr(0, 3) = "aba" and compare it with p = "abc" (mismatch).
+Extract T.substr(1, 3) = "bab" and compare it with p = "abc" (mismatch).
+Extract T.substr(2, 3) = "aba" and compare it with p = "abc" (mismatch).
+Extract T.substr(3, 3) = "bab" and compare it with p = "abc" (mismatch).
+Extract T.substr(4, 3) = "abc" and compare it with p = "abc" (match).
+The match is found at index 4.
+
+Summary:
+First Pattern Matching (Naive Approach): Character by character comparison, checking each possible starting position.
+Second Pattern Matching (Substring Comparison): Direct extraction and comparison of substrings of the same length as the pattern.
