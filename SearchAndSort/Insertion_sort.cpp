@@ -1,4 +1,5 @@
 /*
+[insertion sort visualization](https://visualgo.net/en/sorting)
 [YouTube link](https://www.youtube.com/watch?v=iQNZAOw67zM&t=690s)
 */
 #include <bits/stdc++.h>
