@@ -1,70 +1,42 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 string p;
-string Q[100],S[100];
+string Q[100], S[100];
 
-string F(string S, string C) {
+string mathchPrefix(string S, string C)
+{
     string ck = S + C;
-   int i;
-    for (i = 0; i < ck.length(); i++) 
+    int i;
+    for (i = 0; i < ck.length(); i++)
     {
-      
+
         if (ck.substr(i, ck.length() - i) == Q[ck.length() - i])
         {
+            return Q[ck.length() - i];
             break;
         }
-    /*
-             //input abababc//
+        /*
+                 //input abababc//
 
-Example with Detailed Steps:
- S = " " and C = "a":
-ck = S + C = " " + "a" = "a"
-Let's go through the loop with this ck:
-Iteration Details:
-i = 0:
-ck.substr(0, ck.length() - 0) = ck.substr(0, 1) = "a"
-Q[1] = "a" ( Match)
- The loop breaks, and the function returns Q[1] = "a".
-
-                    //second function call//
- S[i] = "a" and C = "b":
-ck = S + C = "a" + "b" = "ab"
-Let's go through the loop with this ck:
-Iteration Details:
-i = 0:
-ck.substr(0, ck.length() - 0) = ck.substr(0, 2) = "ab"
-Q[2] = "ab" ( Match)
- The loop breaks, and the function returns Q[2] = "ab".
-
-                   //Third function call//
-Consider S = "ab" and C = "a":
-ck = S + C = "ab" + "a" = "aba"
-Let's go through the loop with this ck:
-Iteration Details:
-i = 0:
-ck.substr(0, ck.length() - 0) = ck.substr(0, 3) = "aba"
-Q[3] = "abc" (No match)
-i = 1:
-ck.substr(1, ck.length() - 1) = ck.substr(1, 2) = "ba"
-Q[2] = "ab" (No match)
-i = 2:
-ck.substr(2, ck.length() - 2) = ck.substr(2, 1) = "a"
-Q[1] = "a" (Match found)
-When i = 2, the substring "a" (from position 2 to the end of ck) matches the prefix Q[1] = "a". The loop breaks, and the function returns Q[1] = "a".
-
-*/
+    Example with Detailed Steps:
+     S = " " and C = "a":
+    ck = S + C = " " + "a" = "a"
+    */
     }
-   
-    return Q[ck.length() - i];
+
+    return " ";
 }
 
-void INITIAL() {
-    for (int i = 0; i <= p.length(); i++) {
-        Q[i] = p.substr(0, i);//Q[0] = p.substr(0, 0) = "" (Empty string)
+void INITIAL()
+{
+    for (int i = 0; i <= p.length(); i++)
+    {
+        Q[i] = p.substr(0, i); // Q[0] = p.substr(0, 0) = "" (Empty string)
     }
 }
 
-int main() {
+int main()
+{
     string T;
     int i, INDEX = -1; // Change INDEX initialization to -1 to indicate "not found"
     cout << "Enter your string\n";
@@ -72,29 +44,35 @@ int main() {
     cout << "Enter your keyword\n";
     cin >> p;
     INITIAL();
-    S[0] = Q[0];
-    for (i = 0; i < T.length(); i++) {
+    // because string base case is 0.
+    S[0] = ""; // OR S[0] = Q[0];
+    for (i = 0; i < T.length(); i++)
+    {
         /*
                   //First function call//
         s[i+1]=Q[0];
         s[0+1]=Q[0];
         s[1]=Q[0];
 
-                    //secomd funtion call//
+                    //second funtion call//
         s[i]=s[i+1]
         s[1]=s[0+1]
-        
+
         */
-        S[i + 1] = F(S[i], T.substr(i, 1));
-        if (S[i + 1] == p) {
-            cout<<i;
-            INDEX = i-p.length()+1; //index count o based
+        S[i + 1] = mathchPrefix(S[i], T.substr(i, 1));
+        if (S[i + 1] == p)
+        {
+            cout << "Value of i=" << i << endl;
+            INDEX = i - p.length() + 1; // index count o based
             break;
         }
     }
-    if (INDEX != -1) {
+    if (INDEX != -1)
+    {
         cout << "Keyword found at index = " << INDEX << endl;
-    } else {
+    }
+    else
+    {
         cout << "Keyword not found" << endl;
     }
 
@@ -104,7 +82,55 @@ int main() {
 //first run
              input:Enter your string=  abababc
                   Enter your keyword=  abc
-                
-            output:Keyword found at index =4 
-   
+
+
+Step-by-Step Execution for Input T = "abababc" and p = "abc"
+Initialize S[0] = "" because string base case is 0.
+
+css
+Copy code
+Q[0] = ""
+Q[1] = "a"
+Q[2] = "ab"
+Q[3] = "abc"
+Iteration 1 (i = 0):
+
+S[1] = matchPrefix(S[0], "a") = matchPrefix("", "a").
+Concatenate S[0] + "a" = "a".
+Check if "a" matches any prefix in Q. It matches Q[1], so S[1] = "a".
+Iteration 2 (i = 1):
+
+S[2] = matchPrefix(S[1], "b") = matchPrefix("a", "b").
+Concatenate S[1] + "b" = "ab".
+Check if "ab" matches any prefix in Q. It matches Q[2], so S[2] = "ab".
+Iteration 3 (i = 2):
+
+S[3] = matchPrefix(S[2], "a") = matchPrefix("ab", "a").
+Concatenate S[2] + "a" = "aba".
+Check if "aba" matches any prefix in Q. There is no match, so S[3] = "".
+Iteration 4 (i = 3):
+
+S[4] = matchPrefix(S[3], "b") = matchPrefix("", "b").
+Concatenate S[3] + "b" = "b".
+Check if "b" matches any prefix in Q. There is no match, so S[4] = "".
+Iteration 5 (i = 4):
+
+S[5] = matchPrefix(S[4], "a") = matchPrefix("", "a").
+Concatenate S[4] + "a" = "a".
+Check if "a" matches any prefix in Q. It matches Q[1], so S[5] = "a".
+Iteration 6 (i = 5):
+
+S[6] = matchPrefix(S[5], "b") = matchPrefix("a", "b").
+Concatenate S[5] + "b" = "ab".
+Check if "ab" matches any prefix in Q. It matches Q[2], so S[6] = "ab".
+Iteration 7 (i = 6):
+
+S[7] = matchPrefix(S[6], "c") = matchPrefix("ab", "c").
+Concatenate S[6] + "c" = "abc".
+Check if "abc" matches any prefix in Q. It matches Q[3], so S[7] = "abc".
+Since S[7] equals the keyword "abc",
+
+the code prints the current index value (i = 6).
+The match is found at index i - p.length() + 1 = 6 - 3 + 1 = 4.
+
 */
