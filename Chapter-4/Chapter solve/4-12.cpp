@@ -19,17 +19,33 @@ int count=0;
 }
 int SOMOFABOVEDIAGONAL(int a[][100],int size)//You can use a[100][100]
     {
-    int sum=0;
-      for(int i=1;i<size;i++)
-      {
-        for (int j = 0; j <i; j++)
-        {
-          sum+=a[j][i];
+       // Summing elements above diagonal
+    int SUM = 0;
+    for (int j = 1; j < n; j++) {  // J starts from 1 (column 2)
+        for (int i = 0; i < j; i++) {  // I goes from 0 to J-1 (rows above diagonal)
+            SUM += A[i][j];
         }
-        
-      }
+    }
       return sum;
     }
+
+/*
+Example Walkthrough:
+For the matrix:
+
+Copy code
+1  2  3
+4  5  6
+7  8  9
+We want to sum the elements above the diagonal (2, 3, and 6):
+
+Iteration 1 (J = 2):
+I = 1, Add A[1,2] (which is 2) to SUM.
+Iteration 2 (J = 3):
+I = 1, Add A[1,3] (which is 3) to SUM.
+I = 2, Add A[2,3] (which is 6) to SUM.
+The final SUM would be 2 + 3 + 6 = 11.
+*/
     int PRODUCTOFTHEDIAGONAELOMENT(int a[][100],int size)//You not use a[][45] or a[][45777]
     {
         int product=0;
