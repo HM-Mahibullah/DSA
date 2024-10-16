@@ -48,15 +48,13 @@ The final SUM would be 2 + 3 + 6 = 11.
 */
     int PRODUCTOFTHEDIAGONAELOMENT(int a[][100],int size)//You not use a[][45] or a[][45777]
     {
-        int product=0;
-        for(int i=0;i<size;i++)
-        {
-            for(int j=i;j<=i;j++)
-            {
-                product+=a[i][j];
-            }
+      int product=1;
+        for (int j = 1; j < n; j++) { // Loop over columns starting from 2nd column
+        for (int i = 0; i < j; i++) { // Loop through rows up to diagonal (above diagonal elements)
+            PROD *= A[i][j]; // Multiply each above diagonal element
         }
-        return product;
+    }
+     return product;
     }   
 
 int main()
