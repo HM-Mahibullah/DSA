@@ -1,10 +1,3 @@
-
-//FOR INPUT MATRIX
-3
-2 4 0
-3 0 6
-0 2 3
-
 #include<bits/stdc++.h>
 using namespace std;
 int main()
@@ -44,6 +37,14 @@ int main()
 
 
 /*
+
+//FOR INPUT MATRIX
+3
+2 4 0
+3 0 6
+0 2 3
+
+                      //Explain every iteration
 Iteration 1:
 𝑤=1
 For i=1
