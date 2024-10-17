@@ -14,7 +14,7 @@ using namespace std;
 struct Node
 {
     int data;
-    Node *next;
+    Node *next;//Node *next is a pointer that stores the address of the next node in a linked structure
 };
 Node *Head=NULL;
 void PRINT()
