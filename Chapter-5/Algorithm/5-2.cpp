@@ -16,7 +16,7 @@ struct Node
     int data;
     Node *next;//Node *next is a pointer that stores the address of the next node in a linked structure
 };
-Node *Head=NULL;//"NULL" Not type-safe (just 0, which is an integer)	"nullptr" Type-safe any type  (just 0, which is an any type).
+Node *Head=NULL;// ব্যাখ্যা নিচের কমেন্ট ১ এ
 
 void PRINT()
 {
@@ -54,14 +54,7 @@ cin>>n;
 cout<<"Enter  Node 1 element=";
 cin>>x;
 Node *node1=new Node();//new keyword initilize memory and Node() provides default constructor which means a copy of Node that contains [data and ponter].
-   /*
-   Why Use *node1 (Pointer)?
-Dynamic Memory Allocation:
-
-When you use new Node(), you dynamically allocate memory for a new Node on the heap.
-The new keyword returns the address of the newly created object. Since the address is what is returned, you need a pointer (Node *) to store it.
-Node *node1 is a pointer that stores the address of the node created by new Node().
-   */
+  
 node1->data=x;
 node1->next=NULL;//"NULL" Not type-safe (just 0, which is an integer)	"nullptr" Type-safe any type  (just 0, which is an any type).
 Head=node1;
@@ -71,6 +64,7 @@ for (int  i =2; i <=n; i++)
     cout<<"Enter Node "<<i<<"element=";
     cin>>x;
     Node *newnode=new Node();//new keyword initilize memory and Node() provides default constructor which means a copy of Node that contains data and ponter.
+    //ব্যাখ্যা নিচের কমেন্ট ২ এ
     newnode->data=x;
     newnode->next=NULL;
     currentNode->next=newnode;
@@ -105,3 +99,29 @@ Enter Node 3element=5
 Node data: 2, Node address: 0x10c16c0, Next node address: 0x10c16d0
 Node data: 2, Node address: 0x10c16d0, Next node address: 0x10c6f78
 Node data: 5, Node address: 0x10c6f78, Next node address: 0 */
+
+
+/*
+1.   Node *Head = NULL; 
+      Explained:
+                Node *Head is a pointer of type Node*. It is designed to store the address of a Node object,it is just a pointer and does not contain any 
+                data or next becaus it isn't pointing to any actual Node.
+
+               ##প্রোগ্রাম ১.
+               Node *Head = NULL;  // Head points to nothing, no data or next field exists
+               ##প্রোগ্রাম ২.
+               Node *Head = new Node();  // Now Head points to a new Node object
+               Head->data = 5;           // The data field in the node now contains 5
+               Head->next = NULL;        // The next pointer of this node points to nothing (end of the list)
+
+
+২. Why Use *node1 (Pointer)?
+Dynamic Memory Allocation:
+
+When you use new Node(), you dynamically allocate memory for a new Node on the heap.
+The new keyword returns the address of the newly created object. Since the address is what is returned, you need a pointer (Node *) to store it.
+Node *node1 is a pointer that stores the address of the node created by new Node().
+   *
+
+
+*/
