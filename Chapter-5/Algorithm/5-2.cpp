@@ -52,7 +52,7 @@ cout<<"Enter Creating Numbers=";
 cin>>n;
 cout<<"Enter  Node 1 element=";
 cin>>x;
-Node *node1=new Node();
+Node *node1=new Node();//new keyword initilize memory and Node() provides default constructor which means a copy of Node that contains data and ponter.
 node1->data=x;
 node1->next=NULL;
 Head=node1;
@@ -61,7 +61,7 @@ for (int  i =2; i <=n; i++)
 {
     cout<<"Enter Node "<<i<<"element=";
     cin>>x;
-    Node *newnode=new Node();
+    Node *newnode=new Node();//new keyword initilize memory and Node() provides default constructor which means a copy of Node that contains data and ponter.
     newnode->data=x;
     newnode->next=NULL;
     currentNode->next=newnode;
