@@ -34,7 +34,7 @@ void PRINT()
 Node *SEARCH(int element)
 {
 Node *Temp=Head;
-while (Temp!=NULL)//NULL is used to indicate the end of the list, meaning there are no more nodes to process.
+while (Temp!=NULL)//NULL is used to indicate the end of the list, meaning there are no more [nodes to process].
 {
     if(Temp->data==element)
     {
@@ -52,7 +52,7 @@ cout<<"Enter Creating Numbers=";
 cin>>n;
 cout<<"Enter  Node 1 element=";
 cin>>x;
-Node *node1=new Node();//new keyword initilize memory and Node() provides default constructor which means a copy of Node that contains data and ponter.
+Node *node1=new Node();//new keyword initilize memory and Node() provides default constructor which means a copy of Node that contains [data and ponter].
 node1->data=x;
 node1->next=NULL;
 Head=node1;
