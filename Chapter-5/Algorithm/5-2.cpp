@@ -53,6 +53,14 @@ cin>>n;
 cout<<"Enter  Node 1 element=";
 cin>>x;
 Node *node1=new Node();//new keyword initilize memory and Node() provides default constructor which means a copy of Node that contains [data and ponter].
+   /*
+   Why Use *node1 (Pointer)?
+Dynamic Memory Allocation:
+
+When you use new Node(), you dynamically allocate memory for a new Node on the heap.
+The new keyword returns the address of the newly created object. Since the address is what is returned, you need a pointer (Node *) to store it.
+Node *node1 is a pointer that stores the address of the node created by new Node().
+   */
 node1->data=x;
 node1->next=NULL;
 Head=node1;
