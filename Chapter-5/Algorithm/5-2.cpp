@@ -16,7 +16,8 @@ struct Node
     int data;
     Node *next;//Node *next is a pointer that stores the address of the next node in a linked structure
 };
-Node *Head=NULL;
+Node *Head=NULL;//"NULL" Not type-safe (just 0, which is an integer)	"nullptr" Type-safe any type  (just 0, which is an any type).
+
 void PRINT()
 {
     Node *Temp=Head;
@@ -62,7 +63,7 @@ The new keyword returns the address of the newly created object. Since the addre
 Node *node1 is a pointer that stores the address of the node created by new Node().
    */
 node1->data=x;
-node1->next=NULL;
+node1->next=NULL;//"NULL" Not type-safe (just 0, which is an integer)	"nullptr" Type-safe any type  (just 0, which is an any type).
 Head=node1;
 Node *currentNode=node1;
 for (int  i =2; i <=n; i++)
