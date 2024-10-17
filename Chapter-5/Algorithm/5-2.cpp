@@ -11,6 +11,7 @@ LIST is a Unsorted list in memory. This algorithm finds the location LOC of the 
 
 #include<bits/stdc++.h>
 using namespace std;
+int loop=0;//Element node position count
 struct Node
 {
     int data;
@@ -37,6 +38,7 @@ Node *SEARCH(int element)
 Node *Temp=Head;
 while (Temp!=NULL)//NULL is used to indicate the end of the list, meaning there are no more [nodes to process].
 {
+    loop++;//element node position count
     if(Temp->data==element)
     {
         return Temp;//it returns Temp node that contains data and pointer
@@ -81,7 +83,8 @@ Node* result=SEARCH(element);//It receives pointer type Node which is Temp(data,
 if(result!=NULL)
 {
     cout<<"Element "<<element<<" is  found and address is="<<result<<endl;
-    cout<<"This node element is="<<result->data;
+    cout<<"This node element is="<<result->data<<endl;
+   cout<<"Node positon of node<<loop;
 }
 else
 {
