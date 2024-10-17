@@ -24,7 +24,7 @@ void PRINT()
     while (Temp!=NULL)
     {
      cout << "Node data: " << Temp->data
-        << ", Node address: " << Temp
+        << ", Node address: " << Temp  //Temp has own address.
         << ", Next node address: " << Temp->next << endl;
      Temp=Temp->next;
     }
