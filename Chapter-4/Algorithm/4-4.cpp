@@ -23,7 +23,7 @@ void SORT(int a[],int length )
     {
         if(a[j]>a[j+1])
         {
-            swap(a[j],a[j+1]);
+            swap(a[j],a[j+1]);//At j = 9, it tries to compare a[9] with a[10], but a[10] doesn't exist in the array of size 10.
         }
     }
  } 
