@@ -116,6 +116,9 @@ First sub-call: mergeSort(arr, 0, 1) where mid = 0 (sorting the left half {38, 2
 First sub-sub-call: mergeSort(arr, 0, 0) (base case, no further recursion)
 Second sub-sub-call: mergeSort(arr, 1, 1) (base case, no further recursion)
 Third sub-sub-call: merge(arr, 0, 0, 1) merges {38} and {27} into {27, 38}
+
+প্রথম Function এর কাজ শেষ তাই Second function  কল করা হয়েছে.
+
 Second sub-call: mergeSort(arr, 2, 3) where mid = 2 (sorting the right half {43, 3})
 
 First sub-sub-call: mergeSort(arr, 2, 2) (base case, no further recursion)
