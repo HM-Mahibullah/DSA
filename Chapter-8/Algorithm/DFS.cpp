@@ -62,6 +62,14 @@ int main()
   / \   \
  D   E   F
 
+ The vector repersent that
+1 2
+0 3 4
+0 5
+1
+1
+2
+
 Initial Values:
 visited[] is initialized with all false.
 We start DFS traversal from node 0 (A).
