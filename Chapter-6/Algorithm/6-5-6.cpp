@@ -56,7 +56,7 @@ Initial Array: 4, 2, 3, 9, 6, 10
 o	The array is from index 0 to 5.
 •	First Partition Call (partition(a, 0, 5)):
 o	Pivot: 10 (last element of the current sub-array).
-o	Initial i: -1 (low - 1).
+o	Initial i: -1 (low 0).
 o	Loop: We iterate from j = 0 to j = 4:
 	For j = 0: a[0] = 4 (less than pivot), so i = 0 and swap a[0] with a[0] (no change).
 	For j = 1: a[1] = 2 (less than pivot), so i = 1 and swap a[1] with a[1] (no change).
