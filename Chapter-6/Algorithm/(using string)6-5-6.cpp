@@ -25,7 +25,8 @@ void quickSort(vector<char>& a, int low, int high) {
 
 int main() {
     string s;
-    cin >> s;
+    cout<<"Enter your string to sorted= ";
+   getline(cin,s);
     int n = s.length();
 
     // Convert string to vector of characters
