@@ -7,7 +7,7 @@ void towerOfHanoi(int n, char beg, char aux, char end) {
         return;
     }
     towerOfHanoi(n-1, beg, end, aux);
-    towerOfHanoi(1, beg, aux, end);
+    towerOfHanoi(1, beg, aux, end);                //   ২ টি চাকতি বা চাকার কথা মনে রাখলে কোডটি সহজে মনে রা্খা যায়.
     towerOfHanoi(n-1, aux, beg, end);
 }
 
