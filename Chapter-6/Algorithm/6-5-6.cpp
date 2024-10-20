@@ -38,10 +38,9 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> a[i];
     }
-    int m = sizeof(a) / sizeof(a[0]);
-    quickSort(a, 0, m - 1);//After the quickSort function completes execution, the original array a contains the sorted elements.
+    quickSort(a, 0, n - 1);//After the quickSort function completes execution, the original array a contains the sorted elements.
     //becausu we pass by referance.
-    for (int i = 0; i < m; i++)
+    for (int i = 0; i < n; i++)
     {
         cout << a[i] << " ";
     }
