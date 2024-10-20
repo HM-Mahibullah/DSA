@@ -62,7 +62,7 @@ o	Partitioning Process:
 	'R' < 'S' → Swap 'R' with 'T', increment i to 5
 	'E' < 'S' → Swap 'E' with 'T', increment i to 6
 o	After partitioning, swap the pivot 'S' with 'T' at i+1 = 7.
-o	Array after partitioning: ['D', 'A', 'A', 'R', 'C', 'R', 'E', 'S', 'S', 'T', 'U', 'U', 'T', 'T']
+o	Array after partitioning: ['D', 'A', 'A', 'R', 'C', 'R', 'E', 'S', 'S', 'T', 'U', 'T', 'U', 'T']
 o	Pivot index: 7
 o	Now recursively sort the left subarray (0-6) and right subarray (8-13).
 2.	Sorting the Left Subarray (quickSort(a, 0, 6)):
