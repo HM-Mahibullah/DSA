@@ -1,19 +1,19 @@
-[Merge Sort visualization](https://visualgo.net/en/sorting)
-[Youtube link](https://www.youtube.com/watch?v=CM4uV1vLWow)
+//[Merge Sort visualization](https://visualgo.net/en/sorting)
+//[Youtube link](https://www.youtube.com/watch?v=CM4uV1vLWow)
 
 #include <iostream>
 using namespace std;
 
 // Function to merge two subarrays
-void merge(int arr[], int l, int mid, int h)
+void merge(int arr[], int low, int mid, int high)
 {
-    int i = l;       // Starting index for left subarray
+    int i = low;       // Starting index for left subarray
     int j = mid + 1; // Starting index for right subarray
-    int k = l;       // Starting index to be merged into temp
+    int k = low;       // Starting index to be merged into temp
     int temp[100];   // Temporary array to store sorted elements
 
     // Merging the two subarrays into temp
-    while (i <= mid && j <= h)
+    while (i <= mid && j <= high)
     {
         if (arr[i] > arr[j])//   or   if (arr[i] >= arr[j])
         {
@@ -47,31 +47,31 @@ void merge(int arr[], int l, int mid, int h)
     }
 
     // Copy remaining elements from the right subarray, if any
-    while (j <= h)
+    while (j <= high)
     {
         temp[k++] = arr[j++];
     }
 
     // Copy the sorted elements back to the original array
-    for (int i = l; i <= h; i++)
+    for (int i = low; i <= high; i++)
     {
         arr[i] = temp[i];
     }
 }
 
 // Recursive function to implement merge sort
-void mergeSort(int arr[], int l, int h)
+void mergeSort(int arr[], int low, int high)
 {
-    if (l < h)
+    if (low < high)
     {
-        int mid = (l + h) / 2;
+        int mid = (low + high) / 2;
 
         // Recursively sort the left and right halves
-        mergeSort(arr, l, mid);
-        mergeSort(arr, mid + 1, h);
+        mergeSort(arr, low, mid);
+        mergeSort(arr, mid + 1, high);
 
         // Merge the sorted halves
-        merge(arr, l, mid, h);
+        merge(arr, low, mid, high);
     }
 }
 
@@ -126,7 +126,7 @@ Second sub-sub-call: mergeSort(arr, 3, 3) (base case, no further recursion)
 Third sub-sub-call: merge(arr, 2, 2, 3) merges {43} and {3} into {3, 43}
 Final sub-call: merge(arr, 0, 1, 3) merges {27, 38} and {3, 43} into {3, 27, 38, 43}
 
-Second call: mergeSort(arr, mid + 1, h) where mid = 3 (sorting right half {9, 82, 10})
+Second call: mergeSort(arr, mid + 1, high) where mid = 3 (sorting right half {9, 82, 10})
 
 First sub-call: mergeSort(arr, 4, 5) where mid = 4 (sorting the left half {9, 82})
 
