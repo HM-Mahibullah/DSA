@@ -14,56 +14,84 @@ Interchange DATA[PTR] and DATA[PTR + 1].
 4. Exit
 */
 
-#include<bits/stdc++.h>
+//Ascending
+#include <bits/stdc++.h>
 using namespace std;
-void SORT(int a[],int length )
+void Bubble_sort(int a[], int size)
 {
- for(int i=0;i<length;i++)
- {
-    for(int j=0;j<length-i;j++)
+    int temp;
+    for (int i = 0; i < size; i++)
     {
-        if(a[j]>a[j+1])
+        for (int j = 0; j < size - i-1; j++)
         {
-            swap(a[j],a[j+1]);
+            if (a[j] > a[j+1])
+            {
+                temp = a[j];
+                a[j] = a[j+1];
+                a[j +1] = temp;
+            }
         }
     }
- } 
 }
 int main()
+
 {
-    int a[10],i;
-    cout<<"Enter your array\n";
-    for(i=0;i<10;i++)
+    int a[] = {
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        11,
+        55};
+    int size = sizeof(a) / sizeof(a[0]);
+    Bubble_sort(a, size);
+    cout << "Output=";
+    for (int i = 0; i < size; i++)
     {
-        cin>>a[i];
-    }
-    SORT(a,i);
-    cout<<"Ascending order"<<endl;
-    for(int i=0;i<10;i++)
-    {
-        cout<<a[i]<<" ";
-    }
-    cout<<endl;
-      cout<<"Descending order"<<endl;
-    for(int i=9;i>=0;i--)
-    {
-        cout<<a[i]<<" ";
+        cout << a[i] << " ";
     }
 }
+//Descending order
 /*
-Enter your array
-9
-1
-8
-3
-5
-9
-5
-6
-7
-4
-Ascending order
-1 3 4 5 5 6 7 8 9 9
-Descending order
-9 9 8 7 6 5 5 4 3 1
+#include <bits/stdc++.h>
+using namespace std;
+void Bubble_sort(int a[], int size)
+{
+    int temp;
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size - i-1; j++)
+        {
+            if (a[j] < a[j+1])   /এখানে > চিহ্ন পরিবর্তন করলেই Descending order হবে.            {
+                temp = a[j];
+                a[j] = a[j+1];
+                a[j +1] = temp;
+            }
+        }
+    }
+}
+int main()
+
+{
+    int a[] = {
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        11,
+        55};
+    int size = sizeof(a) / sizeof(a[0]);
+    Bubble_sort(a, size);
+    cout << "Output=";
+    for (int i = 0; i < size; i++)
+    {
+        cout << a[i] << " ";
+    }
+}
 */
+
+
