@@ -92,6 +92,12 @@ int main()
 
     cout << "Original array: ";
     printArray(arr, n);
+    /*
+      for (int i : array)
+    {
+        cout << i << ' ';
+    }
+    */
 
     mergeSort(arr, 0, n - 1);
 
