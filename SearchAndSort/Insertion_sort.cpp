@@ -6,7 +6,6 @@
 using namespace std;
 int Insertion_sort(int a[], int size)
 {
-	
 	for (int i = 1; i < size; i++)
 	{
 		int item= a[i];
