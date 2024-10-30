@@ -20,9 +20,9 @@ void merge(int arr[], int low, int mid, int high)
             temp[k++] = arr[j++];
             /*
                   or you can write
-            temp[k]=arr[i];
+            temp[k]=arr[j];
             k++;
-            i++;
+            j++;
 
             */
         }
