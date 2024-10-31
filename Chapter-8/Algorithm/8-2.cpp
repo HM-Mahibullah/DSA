@@ -14,7 +14,7 @@ int main()
             cin>>p[i][j];
             if(p[i][j]==0)
             {
-                p[i][j]=(int)1e7;
+                p[i][j]=(int)1e7;//1×107 (which is double value so we need type cast)
             }
         }
     }
