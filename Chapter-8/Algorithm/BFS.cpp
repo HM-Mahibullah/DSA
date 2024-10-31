@@ -46,6 +46,7 @@ int main()
 
     // Adjacency list to represent the graph (pre-initialized)
     vector<vector<int>> adjList = {{1, 2}, {0, 3, 4}, {0, 5}, {1}, {1}, {2}};
+    //    https://www.youtube.com/watch?v=sog-o5F-vLg
     /*
            অথবা এই রকম লেখা যায়
         vector<vector<int>> adjList(n); // 2D vector requires two indices to access: one for the row and one for the column.
