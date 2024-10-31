@@ -1,7 +1,7 @@
 // https://www.youtube.com/watch?v=4ugsMYyjuNE
 // https://www.youtube.com/watch?v=I7aVemydDTU   এই ভিডিও তে Backtrack বলতে কী বুঝায় তা বরা হয়েছে.
 
-// এই অ্যালগরিদমটি DFS ব্যবহার করে  Undirected গ্রাফটি Traverse করে কিন্তু এটি এই গ্রাফের জন্য Sortest Path খুঁজে বের করতে পারে না.
+// এই অ্যালগরিদমটি DFS ব্যবহার করে  Undirected গ্রাফটি Traverse করে .
 
 #include <iostream>
 #include <vector>
