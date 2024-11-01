@@ -13,7 +13,7 @@ Find the shortest (minimum weight) path between two specific vertices, or from o
 - **All-Pairs Shortest Path:** Finds the shortest paths between every pair of vertices (e.g., Floyd-Warshall algorithm).
 
 **Key Algorithms:**
-- **Dijkstra’s Algorithm:** Works well for graphs with non-negative weights. Dijkstra’s algorithm is suitable for directed or undirected graphs with positive weights only. unweighted graph, a simpler Breadth-First Search (BFS) algorithm is typically used to find the shortest path.
+- **Dijkstra’s Algorithm:** Works well for graphs with non-negative weights. Dijkstra’s algorithm is suitable for  undirected graphs with positive weights only. unweighted graph, a simpler Breadth-First Search (BFS) algorithm is typically used to find the shortest path.
 - **Bellman-Ford Algorithm:** Handles graphs with negative weights and can detect negative weight cycles. It can handle both directed and undirected graphs, but it’s most commonly applied to directed graphs.
 - **Floyd-Warshall Algorithm:** Efficient for finding shortest paths between all pairs of vertices.It can work on both directed and undirected graphs.
 
