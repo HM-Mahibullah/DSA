@@ -1,40 +1,45 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-// PUSH function
-void PUSH(int STACK[], int &TOP, int MAXSTK, int ITEM) {
-    if (TOP == MAXSTK - 1) { // Check if stack is full
-        cout << "OVERFLOW" << endl;
+const int Max_stack = 5; // Maximum number of stacks
+
+// Function to push an element onto the stack array
+void STACK(stack<int> sk[], int &top, int element) {
+    // Check for overflow condition
+    if (Max_stack - 1 == top) {
+        cout << "Overflow" << endl;
         return;
+    } else {
+        top++;
+        sk[top].push(element); // Push the element onto the stack
     }
-    TOP = TOP + 1;
-    STACK[TOP] = ITEM;
 }
 
 int main() {
-    int MAXSTK = 5; // Maximum stack size
-    int STACK[MAXSTK]; // Stack array
-    int TOP = -1; // Initialize TOP to -1 (empty stack)
+    int n, element;
+    stack<int> sk[Max_stack]; // Array of stacks
+    int top = -1; // Initialize top to -1
 
-    int n, ITEM;
-    cout << "Enter the number of items to push: ";
-    cin >> n;
+    cout << "Enter the number of elements: ";
+    cin >> n; // Input number of elements
 
+    // Loop to input elements and push onto stacks
     for (int i = 0; i < n; i++) {
-        cout << "Enter item " << i + 1 << ": ";
-        cin >> ITEM;
-        PUSH(STACK, TOP, MAXSTK, ITEM); // Call PUSH to add item to stack
+        cout << "Enter element: ";
+        cin >> element;
+        STACK(sk, top, element); // Push element onto the stack
     }
 
-    // Displaying the contents of the stack
-    cout << "Stack contents (top to bottom): ";
-    for (int i = TOP; i >= 0; i--) {
-        cout << STACK[i] << " ";
+    // Loop to pop and display elements from the stacks
+    for (int i = 0; i <= top; i++) {
+        cout << sk[i].top() << " "; // Display the top element
+        sk[i].pop(); // Remove the top element
     }
-    cout << endl;
+    cout << endl; // New line after displaying elements
 
-    return 0;
+    return 0; // Indicate successful completion
 }
+
 /*
 Enter the number of items to push: 6
 Enter item 1: 5
