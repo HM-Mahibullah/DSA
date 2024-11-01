@@ -1,4 +1,5 @@
-// Bellmanford
+// Answer contains this link......
+//https://www.scaler.in/bellmanford-algorithm/
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -35,13 +36,13 @@ int main()
         dis[i]=INT_MAX;
     }
     dis[0]=0;
-    for(int i=1;i<=n-1;i++)
+    for(int i=1;i<n;i++)
     {
         for(Edge eg:list)
         {
             int u = eg.a;
             int v = eg.b;
-            int w = eg.c;
+            int w = eg.c;//weight
 
             if(dis[u]<INT_MAX && dis[u]+w < dis[v])
             {
@@ -69,3 +70,7 @@ int main()
         if(flag) cout << "NOT cycle" << endl;
         else cout << "Cycle detected " << endl; */
 }
+
+/*
+
+*/
