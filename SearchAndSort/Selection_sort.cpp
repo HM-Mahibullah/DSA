@@ -1,3 +1,4 @@
+//[Merge Sort visualization](https://visualgo.net/en/sorting)
 
 // In insertion sort, each element is placed in its correct position relative to the sorted part of the array by shifting elements as needed.
 #include <bits/stdc++.h>
