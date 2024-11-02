@@ -70,7 +70,23 @@ int main()
         if(flag) cout << "NOT cycle" << endl;
         else cout << "Cycle detected " << endl; */
 }
-
 /*
+Nodes: 1, 2, 3, 4, 5
+Therefore, n = 5.
+Edges: e = 7.
+Edge from 1 to 2 with weight 6
+
+Edge from 1 to 3 with weight 5
+
+Edge from 2 to 4 with weight -1
+
+Edge from 2 to 3 with weight -2
+
+Edge from 3 to 4 with weight 4
+
+Edge from 3 to 5 with weight 3
+
+Edge from 4 to 5 with weight 3
+
 
 */
