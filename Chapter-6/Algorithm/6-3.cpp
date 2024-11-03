@@ -1,35 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int evaluatePostfix(string postfix) {
+int evaluatePostfix(string postfix)
+{
     stack<int> s;
     istringstream partString(postfix); // Allows parsing the string by spaces
     string token;
 
-    while (partString >> token) {
-        if (isdigit(token[0]) || (token.size() > 1 && isdigit(token[1]))) {
+    while (partString >> token)
+    {
+        if (isdigit(token[0]) || (token.size() > 1 && isdigit(token[1])))
+        {
             // If token is an operand (a number)
             s.push(stoi(token)); // Convert token to integer and push onto stack
-        } else {
+        }
+        else
+        {
             // Token is an operator
             int A = s.top();
             s.pop();
             int B = s.top();
             s.pop();
 
-            switch (token[0]) {
-                case '+':
-                    s.push(B + A);// 'B' has large value after adding ,substrating,muliplying. 
-                    break;
-                case '-':
-                    s.push(B - A);
-                    break;
-                case '*':
-                    s.push(B * A);
-                    break;
-                case '/':
-                    s.push(B / A);
-                    break;
+            switch (token[0])
+            {
+            case '+':
+                s.push(B + A); // 'B' has large value after adding ,substrating,muliplying.
+                break;
+            case '-':
+                s.push(B - A);
+                break;
+            case '*':
+                s.push(B * A);
+                break;
+            case '/':
+                s.push(B / A);
+                break;
             }
         }
     }
@@ -40,33 +46,34 @@ int evaluatePostfix(string postfix) {
     return value;
 }
 
-int main() {
+int main()
+{
     string String;
     cout << "Enter a postfix expression: ";
     getline(cin, String); // Input the postfix expression
 
-/* 
-                         //using getline cause//
-A postfix expression often contains multiple operands and operators separated by spaces (e.g., 5 3 + 8 2 - *).
-If you use cin >> Q, it would only read the first token (e.g., 5) and stop at the first space.
-getline(cin, Q) reads the entire line, including spaces, so the full expression is captured as a single string. */
+    /*
+                             //using getline cause//
+    A postfix expression often contains multiple operands and operators separated by spaces (e.g., 5 3 + 8 2 - *).
+    If you use cin >> Q, it would only read the first token (e.g., 5) and stop at the first space.
+    getline(cin, Q) reads the entire line, including spaces, so the full expression is captured as a single string. */
 
-/*      
-                //OR you can write to declare string//   
-    string postFix = "5 6 2 + * 12 4 / -";
-    int result = evaluatePostfix(postFix);
+    /*
+                    //OR you can write to declare string//
+        string postFix = "5 6 2 + * 12 4 / -";
+        int result = evaluatePostfix(postFix);
 
-*/
+    */
 
     int result = evaluatePostfix(String); // Pass the postfix expression to the function
     cout << "The result is: " << result << endl;
 
     return 0;
 }
-/* 
+/*
                //first run
 Enter a postfix expression: 5 6 2 + * 12 4 / -
-The result is: 37 
+The result is: 37
 
               //second run
 Enter a postfix expression: 5 3 + 8 2 - *
@@ -75,8 +82,7 @@ The result is: 48
 
 */
 
-
-/* 
+/*
 Applying the Statement to the Example Postfix Expression:
 Postfix Expression: 5 6 2 + * 12 4 / -
 Let's go through each token:
